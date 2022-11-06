@@ -5,4 +5,5 @@ from django.http import HttpResponse
 
 
 def say_hello(req):
+    x = 1
     return HttpResponse("hello World")
