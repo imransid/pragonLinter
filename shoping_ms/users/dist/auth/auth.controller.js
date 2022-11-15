@@ -18,12 +18,12 @@ let AuthController = class AuthController {
     }
     signup() {
         return ({
-            'msg': 'I m Sign Up'
+            'msg': 'I m Sign Up Controller'
         });
     }
     signin() {
         return ({
-            'msg': 'I m Sign In'
+            'msg': 'I m Sign In  Controller'
         });
     }
 };
