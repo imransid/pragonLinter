@@ -16,15 +16,11 @@ let AuthController = class AuthController {
     constructor(authService) {
         this.authService = authService;
     }
-    signup() {
-        return ({
-            'msg': 'I m Sign Up Controller'
-        });
+    signUp() {
+        return this.authService.signUp();
     }
-    signin() {
-        return ({
-            'msg': 'I m Sign In  Controller'
-        });
+    signIn() {
+        return this.authService.signIn();
     }
 };
 __decorate([
@@ -32,13 +28,13 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], AuthController.prototype, "signup", null);
+], AuthController.prototype, "signUp", null);
 __decorate([
     (0, common_1.Post)('signin'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], AuthController.prototype, "signin", null);
+], AuthController.prototype, "signIn", null);
 AuthController = __decorate([
     (0, common_1.Controller)('auth'),
     __metadata("design:paramtypes", [auth_service_1.AuthService])
