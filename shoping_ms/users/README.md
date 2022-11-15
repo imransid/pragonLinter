@@ -1,14 +1,5 @@
-## npx prisma studio
+## show DB :: `npx prisma studio`
 
-->
+## check Docker :: `docker ps`
 
-### show DB
-
-## docker ps
-
-->
-
-### check Docker
-
-
-
+## DTO : Data Transfer Object
