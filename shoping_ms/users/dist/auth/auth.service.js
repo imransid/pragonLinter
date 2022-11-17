@@ -26,12 +26,16 @@ let AuthService = class AuthService {
                     email: dto.email,
                     hash,
                     firstName: dto.firstName,
-                    lastName: dto.lastName
+                    lastName: dto.lastName,
+                    UsersRole: {
+                        create: {}
+                    }
                 }
             });
             delete user.hash;
             return {
-                msg: 'Create User Successfully.',
+                status: 200,
+                message: 'Create User Successfully.',
                 data: user
             };
         }
@@ -45,7 +49,7 @@ let AuthService = class AuthService {
             throw error;
         }
     }
-    signIn() {
+    signIn(dto) {
         return {
             msg: 'I am signIn'
         };

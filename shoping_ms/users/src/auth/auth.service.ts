@@ -15,26 +15,30 @@ export class AuthService {
     async signUp(dto: AuthDto){
 
         try{
+            //generate hash pasword
+            const hash = await argon.hash(dto.password);
 
-        //generate hash pasword
-        const hash = await argon.hash(dto.password);
+            // save user in the DB
+            const user = await this.prisma.user.create({
+            data: {
+                email: dto.email,
+                hash,
+                firstName : dto.firstName,
+                lastName : dto.lastName,
+                UsersRole: {
+                    create: {
+                    }
+                }
+            }
+            });
 
-        // save user in the DB
-        const user = await this.prisma.user.create({
-           data: {
-            email: dto.email,
-            hash,
-            firstName : dto.firstName,
-            lastName : dto.lastName
-           }
-        });
+            delete user.hash;
 
-        delete user.hash;
-
-        return {
-            msg : 'Create User Successfully.',
-            data : user
-        }
+            return {
+                status: 200,
+                message : 'Create User Successfully.',
+                data : user
+            }
         }catch(error){
 
             if(

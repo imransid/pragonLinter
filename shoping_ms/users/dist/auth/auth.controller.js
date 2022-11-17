@@ -23,8 +23,8 @@ let AuthController = class AuthController {
     signUp(dto) {
         return this.authService.signUp(dto);
     }
-    signIn() {
-        return this.authService.signIn();
+    signIn(dto) {
+        return this.authService.signIn(dto);
     }
 };
 __decorate([
@@ -36,8 +36,9 @@ __decorate([
 ], AuthController.prototype, "signUp", null);
 __decorate([
     (0, common_1.Post)('signin'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [dto_1.AuthSignInDto]),
     __metadata("design:returntype", void 0)
 ], AuthController.prototype, "signIn", null);
 AuthController = __decorate([
