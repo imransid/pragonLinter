@@ -1,13 +1,14 @@
 import { PrismaService } from "src/prisma/prisma.service";
-import { AuthDto } from "./dto";
+import { AuthDto, AuthSignInDto } from "./dto";
 export declare class AuthService {
     private prisma;
     constructor(prisma: PrismaService);
     signUp(dto: AuthDto): Promise<{
-        msg: string;
+        status: number;
+        message: string;
         data: import(".prisma/client").User;
     }>;
-    signIn(): {
+    signIn(dto: AuthSignInDto): {
         msg: string;
     };
 }

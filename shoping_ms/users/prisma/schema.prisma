@@ -19,17 +19,24 @@ model User {
   firstName  String
   lastName   String
   profilePic String?
-  usersRole  UsersRole[]
+  UsersRole  UsersRole[]
 
   @@map("users")
 }
 
 model UsersRole {
   id     Int     @id @default(autoincrement())
-  role   String?
+  role   Role    @default(USER)
   status Boolean @default(false)
-  userId Int
-  user   User    @relation(fields: [userId], references: [id])
+
+  approveBy User?   @relation(fields: [approveId], references: [email])
+  approveId String?
 
   @@map("users_role")
+}
+
+enum Role {
+  USER
+  SERVICEADMIN
+  ADMIN
 }
