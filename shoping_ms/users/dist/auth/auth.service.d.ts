@@ -8,7 +8,9 @@ export declare class AuthService {
         message: string;
         data: import(".prisma/client").User;
     }>;
-    signIn(dto: AuthSignInDto): {
+    signIn(dto: AuthSignInDto): Promise<{
+        status: number;
         msg: string;
-    };
+        data: import(".prisma/client").User;
+    }>;
 }
